@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokemonPokeDex</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <div class="title">
+      <div class="logo_img">
+        <img src="public/images/pokeball.png" alt="pokeball">
+      </div>
+      <div class="title_name">
+        <h1>PokeDex</h1>
+      </div>
+    </div>
+    <div class="search">
+      <div class="input_tag">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Search" id="filter_input">
+      </div>
+      <div class="filter_wrappper">
+        <div class="filter_wrap">
+          <i class="ri-menu-2-fill"></i>
+        </div>
+        <!-- <div class="filters">
+          <div class="filter">
+            <input type="radio" name="filter" id="filter_name_1">
+            <label for="filter_name_1">Name</label>
+          </div>
+          <div class="filter">
+            <input type="radio" name="filter" id="filter_id">
+            <label for="filter_id">Number</label>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </header>
+
+  <div class="pokemon_container" id="cards">
+  </div>
+</body>
+</html>
