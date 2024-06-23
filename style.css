@@ -121,7 +121,8 @@ input::placeholder{
 
 .pokemon_container{
   width: 90%;
-  background-color: red;
+  height: 90vh;
+  /* background-color:; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,7 +136,7 @@ input::placeholder{
   flex-direction: column;
   align-items: center;
   width: 20rem;
-  height: 15rem;
+  height: 18rem;
   background-color: white;
   padding: 1rem;
   margin: 1rem;
@@ -143,6 +144,7 @@ input::placeholder{
   border-radius: 0.6rem;
   position: relative;
   cursor: pointer;
+  box-shadow: 0 0 0.6rem rgba(0,0,0,0.4);
 }
 
 .card p{
@@ -151,11 +153,11 @@ input::placeholder{
   right: 1rem;
   font-size: 1.4rem;
   font-size: 900;
-  color: grey;
+  color:  black;
 }
 
 .card img{
-  width: 7rem;
+  width: 10rem;
   margin-top: 2rem;
   transform: scale(1);
   transition: 0.4s;
@@ -169,4 +171,13 @@ input::placeholder{
 
 .card img:hover{
   transform: scale(1.5);
+}
+
+.error_message{
+  font-size: 6rem;  
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  margin-top: 2rem;
 }
