@@ -67,8 +67,8 @@ function displayPokemon(data) {
     const type = el.types[0] || 'normal'; 
     const color = typeColors[type.toLowerCase()] || '#f9f9f9'; 
     html += `
-      <div class="card" style="background-color: ${color};">
-        <p class="id">#${pokemonId}</p>
+      <div class="card" style="background-color: ${color};" data-id = "${pokemonId}">
+        <p class="id">#${pokemonId.padStart(2,'0')}</p>
         <div class="img">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png" alt="${el.name}">
         </div>
@@ -77,14 +77,33 @@ function displayPokemon(data) {
         </h3>
       </div>`;
   });
+
   if (html === '') {
     errorMessage.style.display = 'block';
     cardEl.style.display = "none";
   }
+
   cardEl.innerHTML = html;
 }
 
-filterInput.addEventListener('keydown', (e) => {
+async function displayPokemonDetails(pokemonId) {
+  window.location.href = `./details.html?id=${pokemonId}`;
+  return true;
+}
+
+cardEl.addEventListener('click', async (event) => {
+  const card = event.target.closest('.card');
+  console.log(card);
+  if (card) {
+    const pokemonId = card.dataset.id;
+    let success = await displayPokemonDetails(pokemonId);
+    if (success) {
+      window.location.href = `./details.html?id=${pokemonId}`;
+    }
+  }
+});
+
+filterInput.addEventListener('input', (e) => {
   const searchTerm = e.target.value.toLowerCase();
   const filteredData = pokemonData.filter(pokemon => pokemon.name.toLowerCase().includes(searchTerm));
   displayPokemon(filteredData);
