@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-:root{
-  --color-bg: green;
-}
-
 *{
   margin: 0;
   padding: 0;
@@ -25,8 +21,8 @@ body{
 }
 
 .details_container{
-  width: 30rem;
-  height: 40rem;
+  width: 35rem;
+  height: 60rem;
   border-radius: 1.3rem;
   display: flex;
   flex-direction: column;
@@ -38,12 +34,11 @@ body{
 
 .intro{
   width: 100%;
-  height: 40%;
+  height: 14rem;
   background: url('/public/images/Pokemon-Pokeball.png');
   background-position:bottom;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: var(--color-bg);
   padding: 1rem 2rem;
   position: relative;
   box-shadow: 0 0 3rem rgba(0,0,0,0.4);
@@ -57,8 +52,30 @@ body{
   color: white;
 }
 
+.nameId div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nameId .back{
+  font-size: 1.9rem;
+  background-color: grey;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.6s;
+}
+
+.nameId .back:hover{
+  background-color: black;
+}
+
 .nameId .name{
   text-transform: capitalize;
+  margin-left: 0.6rem;
 }
 
 .img-container{
@@ -69,13 +86,14 @@ body{
 }
 
 .pokeImg{
-  width: 10rem;
+  width: 17rem;
+  cursor: pointer;
 }
 
 .types,
 .about{
   width: 100%;
-  margin-top: 3.5rem;
+  margin-top: 4.5rem;
   text-align: center;
 }
 
@@ -88,11 +106,10 @@ body{
   font-size: 1.8rem;
 }
 
-.types div p{
+.types .type-data p{
   background-color: var(--color);
   padding: 0.6rem 2rem;
   border-radius: 4rem;
-  cursor: pointer;
 }
 
 .about_data{
@@ -114,3 +131,74 @@ body{
   color: gray;
 }
 
+
+.base-stats{
+  width: 100%;
+}
+
+.base-stats h1{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.stats{
+  margin-left: 1rem;
+}
+
+.stats-bar{
+  display: flex;
+  justify-content: right;
+  align-items:start;
+  margin-right: 2rem;
+  position: relative;
+}
+
+.stats-bar::before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 0.1rem;
+  background-color: lightblue;
+  left: 15%;
+  
+}
+
+.stats-bar p{
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.stat-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-bar p{
+  margin-right: 0.9rem;
+  color: rgba(128, 128, 128, 0.855);
+  font-weight: 400;
+}
+
+progress{
+  width: 22rem;
+  height: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--color-bg);
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--color-bg);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--color-bar);
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--color-bar);
+}
