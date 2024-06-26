@@ -68,7 +68,7 @@ function displayPokemon(data) {
     const color = typeColors[type.toLowerCase()] || '#f9f9f9'; 
     html += `
       <div class="card" style="background-color: ${color};" data-id = "${pokemonId}">
-        <p class="id">#${pokemonId.padStart(2,'0')}</p>
+        <p class="id">#${pokemonId.padStart(3,'0')}</p>
         <div class="img">
           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png" alt="${el.name}">
         </div>

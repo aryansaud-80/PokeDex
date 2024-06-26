@@ -1,6 +1,28 @@
-const detailContainer = document.getElementById('details');
-
 const pokemonId = new URLSearchParams(window.location.search).get('id');
+
+const introEl = document.querySelector('.intro');
+
+const typeColors = {
+  normal: '#A8A77A',
+  fire: '#EE8130',
+  water: '#6390F0',
+  electric: '#F7D02C',
+  grass: '#7AC74C',
+  ice: '#96D9D6',
+  fighting: '#C22E28',
+  poison: '#A33EA1',
+  ground: '#E2BF65',
+  flying: '#A98FF3',
+  psychic: '#F95587',
+  bug: '#A6B91A',
+  rock: '#B6A136',
+  ghost: '#735797',
+  dragon: '#6F35FC',
+  dark: '#705746',
+  steel: '#B7B7CE',
+  fairy: '#D685AD',
+};
+
 
 
 async function getPokemonData(id){
@@ -9,48 +31,49 @@ async function getPokemonData(id){
   displayPokemonDetails(data);
 }
 
+const generateTypeColor = function(type){
+  let color = '';
+  if(typeColors.hasOwnProperty(type)){
+    color = typeColors[type];
+  }else{
+    color = typeColors[normal];
+  }
+
+
+  return color;
+}
+
 
 
 const displayPokemonDetails = (data)=>{
-  let html ="";
-  detailContainer.innerHTML = "";
-  html += `<div class="intro">
-      <div class="nameId">
-        <p class="name">${data.name}</p>
-        <p class="id">#${pokemonId.padStart(3,'0')}</p>
-      </div>
-      <div class="img-container">
-        <img src="${data.sprites.front_default}" alt="" class="pokeImg">
-      </div>
-    </div>
+  const types = data.types;
+  const moves = data.moves;
+  let count =0;
+  introEl.style.backgroundColor = generateTypeColor(data.types[0].type.name);
+  document.querySelector('.name').innerText = data.name;
+  document.querySelector('.id').innerText = `#${pokemonId.padStart(3, '0')}`;
+  document.querySelector('.pokeImg').src= `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
+  
 
-    <div class="types">
-      <h1>Types</h1>
-      <div class="type">
-        <p style="--color: #ccffcc">${data.types[0].type.name}</p>
-      </div>
-    </div>
+  types.forEach((el)=>{
+    const pEl = document.createElement('p');
+    pEl.innerText = el.type.name;
+    pEl.setAttribute("style", `--color: ${generateTypeColor(el.type.name)}`)
+    document.querySelector('.type-data').insertAdjacentElement('beforeend', pEl)
+  })
 
-    <div class="about">
-      <h2>About</h2>
-      <div class="about_data"> 
-        <div class="detail">
-          <p><i class="ri-weight-line"></i> ${data.weight/10}kg</p>
-          <p>weight</p>
-        </div>
-        <div class="detail">
-            <p><i class="ri-expand-height-line"></i> ${data.height/10}m</p>
-          <p>Height</p>
-        </div>
-        <div class="detail">
-          <p>${data.moves[0].move.name}</p>
-          <p>Moves</p>
-        </div>
-      </div>
-    </div>`
+  document.querySelector('.weight').insertAdjacentText('beforeend', `${data.weight/10}kg`);
+  document.querySelector('.height').insertAdjacentText('beforeend', `${data.height/10}m`);
 
 
-    detailContainer.innerHTML = html;
+  moves.forEach((el)=>{
+    count++;
+    if(count>2) return;
+
+    const pEl = document.createElement('p');
+    pEl.innerText = el.move.name;
+    document.querySelector('.moves').insertAdjacentElement('afterbegin', pEl);
+  })
 }
 
 getPokemonData(pokemonId);
