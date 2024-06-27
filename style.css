@@ -17,23 +17,27 @@ body{
   min-height: 100vh;
   background: linear-gradient(to right, rgba(253, 196, 196, 0.466) 0%, #eddeed 100%);
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 3rem;
+  display: none;
 }
 
 header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
   padding: 1rem 3rem;
   background-color: crimson;
   color: white;
-  border-radius: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 10px;
 }
 
 header .title{
@@ -180,4 +184,32 @@ input::placeholder{
   width: 100vw;
   text-align: center;
   margin-top: 2rem;
+}
+
+@media  screen and (max-width: 700px) {
+
+  header{
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .search{
+    justify-content: center;
+  }
+
+  .input_tag{
+    width: 60%;
+  }
+
+  .input_tag input{
+    width: 100%;
+  }
+}
+
+
+@media  screen and (max-width: 400px) {
+  .title_name h1{
+    font-size: 25px;
+  }
 }

@@ -1,4 +1,13 @@
+
+document.addEventListener('DOMContentLoaded', ()=>{
 const pokemonId = new URLSearchParams(window.location.search).get('id');
+
+const loader = document.querySelector('.loader');
+
+setTimeout(function(){
+  loader.style.display = "none";
+  document.querySelector('.details_container').style.display = "flex";
+},3000)
 
 const introEl = document.querySelector('.intro');
 const h1El = document.querySelectorAll('h1');
@@ -111,3 +120,4 @@ const displayPokemonDetails = (data)=>{
 document.querySelector('.back').addEventListener('click', ()=> window.location.href = `index.html`);
 
 getPokemonData(pokemonId);
+})
