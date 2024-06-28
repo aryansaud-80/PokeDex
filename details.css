@@ -22,7 +22,7 @@ body{
 
 .details_container{
   width: 35rem;
-  height: 60rem;
+  height: 62rem;
   border-radius: 1.3rem;
   display: flex;
   flex-direction: column;
@@ -36,8 +36,8 @@ body{
 
 .intro{
   width: 100%;
-  height: 14rem;
-  background: url('/public/images/Pokemon-Pokeball.png');
+  height: 15rem;
+  background: url('Pokemon-Pokeball.png');
   background-position:bottom;
   background-size: contain;
   background-repeat: no-repeat;
@@ -127,12 +127,13 @@ body{
 
 .about_data .detail{
   border-right: 1px solid grey;
-  padding: 1rem;
+  padding-right: 4rem;
 }
 
 
 .about_data .detail:nth-child(3){
   border-right: none;
+  padding: 0;
 }
 
 .about_data .detail p:last-child{
@@ -167,7 +168,7 @@ body{
   height: 100%;
   width: 0.1rem;
   background-color: lightblue;
-  left: 15%;
+  left: 5rem;
   
 }
 
@@ -213,22 +214,26 @@ progress::-moz-progress-bar {
 
 
 @media  screen and (max-width: 400px) {
-  progress{
+  .details_container{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+
+  .stats .stats-bar{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  
+  .stats .stats-bar::before{
     display: none;
   }
 
-  .stats .stats-bar{
-    width: 100%;
-    justify-content: center;
-    padding: 0 20px;
-  }
-  
-  .stats .stats-bar::before{
-    left: 165px;
-  }
-
-  .stat-bar{
-    margin-left: 100px;
+  progress{
+    width: calc(100vw - 10rem);
   }
 }
 

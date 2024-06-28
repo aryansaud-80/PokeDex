@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
   setTimeout(function(){
     loader.style.display = "none";
     document.querySelector('.container').style.display= "flex";
-  },6000)
+  },9000)
 
 
   const cardEl = document.getElementById('cards');
